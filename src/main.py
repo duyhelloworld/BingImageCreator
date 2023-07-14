@@ -1,10 +1,19 @@
 from BingImageCreator import ImageGen
 
-def excute(prompt="Cat"):
-    print("test function")
-    cookie = '1iAc-_ASX1Rb_402WIK_ihn9B0W6CgpSZooU8v4XzS1jrt8nEQNiNP9n2uNmIrUFEtoOWv3NZnsggczOB7xW7HalAHHwCd_Cb4koj0imKWgaxbwN_XqhAU6-sNxN6Ne6GnD87scuXMt44hsFf6o3sGGYpEu4OD9q3PK_uYS-BW2OpMDYWPyclXkN4PslMXdS2Mgo3THahB3H2nqSxu4sNgg'
-    gen = ImageGen(auth_cookie=cookie)
+# Cookie vứt vào trong dấu ' ở dưới đây
+COOKIE = 'bla bla...'
+
+# PROMPT vứt vào đây
+PROMPT = 'Mèo Doraemon'
+
+def excute(prompt):
+    print("_______________________________________")
+    print("__________Bing AI Image Creator________")
+    print("_______________________________________\n")
+    gen = ImageGen(auth_cookie=COOKIE)
     image_urls = gen.get_images(prompt)
     gen.save_images(
-        links=image_urls, output_dir="src/images", file_name=prompt.lower().split(" ")[0], download_count=4)
-excute("Ironman 3D, visualize, ultralistic")
+        links=image_urls, output_dir="src/images",
+        file_name=prompt.lower().split(" ")[0], download_count=4)
+    
+excute(PROMPT)
